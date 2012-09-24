@@ -1,0 +1,3 @@
+Slides:
+	- Work flow in practice; disciplines involved, ui's helped by devs. a better case study. a series of tests
+	- Better code coverage; eval another code coverage tool

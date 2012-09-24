@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="../head.min.js"></script>
+		<script type="text/javascript"><!--<![CDATA[
+			head.js('library.js', '../../lib/qunit/qunit.js', '../../lib/jsmock.js',  'unittests.js', function() {
+				window.xmlTransformer= new XmlTransformer(this.document, new XSLTProcessor());
+			});
+		//]]></script>
+		<link type="text/css" href="../../lib/qunit/qunit.css" rel="stylesheet"/>
+		<style type="text/css">
+			pre {
+				font-family: consolas;
+				line-height: 1em;
+			}
+			textarea#entry {
+				width: 100%;
+				height: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<textarea id="entry"><root><child1 /><child2><child3 parent="getoutofhere" /></child2></root></textarea>
+		<pre id="formatted">
+		</pre>
+		<input type="button" onclick="void(xmlTransformer.transform('entry', 'formatted'));" value="Format" />
+		<hr />
+		<h1 id="qunit-header">QUnit example</h1>  
+		<h2 id="qunit-banner"></h2>  
+		<h2 id="qunit-userAgent"></h2>  
+		<ol id="qunit-tests">  
+		</ol>  
+	</body>
+</html>

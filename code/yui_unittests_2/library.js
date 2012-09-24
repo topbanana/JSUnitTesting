@@ -1,0 +1,4 @@
+TestableObject = function () {
+	    return {
+		}
+} ();
