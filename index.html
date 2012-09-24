@@ -49,123 +49,115 @@
             <section>
                 <h2>Javascript</h2>
                 <ul>
-                    <li>An interpreted language with many influences</li>
-                    <li>Delivered as is without development tools</li>
-                    <li>Runtimes historically execute in context of Browser</li>
-                    <li>Does not provide module or component patterns</li>
-                    <li>Tightly coupled with the DOM</li>
+                    <li class="fragment">An interpreted language with many influences</li>
+                    <li class="fragment">Delivered as is without development tools</li>
+                    <li class="fragment">Runtimes historically execute in context of Browser</li>
+                    <li class="fragment">Does not provide module or component patterns</li>
+                    <li class="fragment">Tightly coupled with the DOM</li>
                 </ul>
             </section>
 
             <section>
                 <h2>Test driven development</h2>
                 <ul>
-                    <li>Software developed in short cycles</li>
-                    <li>Supported by unit tests defining correct behaviour</li>
-                    <li>Test code first, application code second</li>
-                    <li>Failing test based on requirement</li>
-                    <li>Write application code</li>
-                    <li>Observe passing tests and repeat</li>
+                    <li class="fragment">Software developed in short cycles</li>
+                    <li class="fragment">Supported by unit tests defining correct behaviour</li>
+                    <li class="fragment">Test code first, application code second</li>
+                    <li class="fragment">Failing test based on requirement</li>
+                    <li class="fragment">Write application code</li>
+                    <li class="fragment">Observe passing tests and repeat</li>
                 </ul>
             </section>
             <section>
                 <h2>Test driven Javascript develoment</h2>
                 <ul>
-                    <li>Build components</li>
-                    <li>Decouple from DOM and DOM coupled libraries</li>
-                    <li>Decouple from the UI and it's interactions</li>
-                    <li>Tests must be separate from application</li>
-                    <li>Tests should run as part of build</li>
+                    <li class="fragment">Build components</li>
+                    <li class="fragment">Decouple from DOM and DOM coupled libraries</li>
+                    <li class="fragment">Decouple from the UI and it's interactions</li>
+                    <li class="fragment">Tests must be separate from application</li>
+                    <li class="fragment">Tests should run as part of build</li>
                 </ul>
             </section>
 
             <section>
                 <h2>Writing Unit Tests</h2>
                 <ul>
-                    <li>Use a Unit Test Framework</li>
-                    <li><a href="http://yuilibrary.com/yui/docs/test/">YUI</a></li>
-                    <li><a href="http://www.jsunit.net/">JSUnit</a></li>
-                    <li><a href="https://github.com/pivotal/jasmine/">Jasmine</a></li>
-                    <li><a href="http://docs.jquery.com/Qunit">QUnit</a></li>
+                    <li class="fragment">Use a Unit Test Framework</li>
+                    <li class="fragment"><a href="http://yuilibrary.com/yui/docs/test/">YUI</a></li>
+                    <li class="fragment"><a href="http://www.jsunit.net/">JSUnit</a></li>
+                    <li class="fragment"><a href="https://github.com/pivotal/jasmine/">Jasmine</a></li>
+                    <li class="fragment"><a href="http://docs.jquery.com/Qunit">QUnit</a></li>
                 </ul>
             </section>
 
             <section>
                 <h2>Using a Unit Test Framework</h2>
                 <ul>
-                    <li>Allow you to set up a scenario</li>
-                    <li>And reset or destroy it</li>
-                    <li>Make assertions about outcomes</li>
-                    <li>Fake objects you are decoupled from</li>
-                    <li>or objects your test has no interest in</li>
+                    <li class="fragment">Allow you to set up a scenario</li>
+                    <li class="fragment">And reset or destroy it</li>
+                    <li class="fragment">Make assertions about outcomes</li>
+                    <li class="fragment">Fake objects you are decoupled from</li>
+                    <li class="fragment">or objects your test has no interest in</li>
                 </ul>
-                <p>See <a href="http://www.slideshare.net/chrisjoha/testdriven-javascript-development-javazone-2010">Christian Johansen's presentation</a>.</p>
             </section>
 
             <section>
                 <h2>YUI Test</h2>
                 <ul>
-                    <li>Provided by Yahoo</li>
-                    <li>Well documented</li>
-                    <li>Provides most facilities required</li>
-                    <li>Web page orientated; requires a script tag in a html document</li>
-                    <li>Tests Yahoo Javascript components</li>
+                    <li class="fragment">Provided by Yahoo</li>
+                    <li class="fragment">Well documented</li>
+                    <li class="fragment">Provides most facilities required</li>
+                    <li class="fragment">Web page orientated; requires a script tag in a html document</li>
+                    <li class="fragment">Tests Yahoo Javascript components</li>
                 </ul>
             </section>
 
             <section>
                 <h2>YUI Example 1: Failing test</h2>
-                <ul>
-                    <li>
-                        <h3><a href="code/yui_unittests/library.js">Library.js</a></h3>
-                        <object class="lang-js prettyprint" data="code/yui_unittests/library.js" type="text/html" style="height: 40px; width: 100%;"></object>
-                    </li>
-                    <li>
-                        <h3><a href="code/yui_unittests/unittests.js">Unittests.js</a></h3>
-                        <object class="lang-js prettyprint" data="code/yui_unittests/unittests.js" type="text/html" style="height: 300px; width: 100%;"></object>
-                    </li>
-                </ul>
+                <section>
+                    <h3><a href="code/yui_unittests/library.js">Library.js</a></h3>
+                    <object class="lang-js prettyprint" data="code/yui_unittests/library.js" type="text/html" style="height: 40px; width: 100%;"></object>
+                </section>
+                <section>
+                    <h3><a href="code/yui_unittests/unittests.js">Unittests.js</a></h3>
+                    <object class="lang-js prettyprint" data="code/yui_unittests/unittests.js" type="text/html" style="height: 300px; width: 100%;"></object>
+                </section>
             </section>
 
             <section>
-                <h1>YUI Example 1: Test output</h1>
-
+                <h2>YUI Example 1: Test output</h2>
                 <h3>Test output</h3>
                 <object data="code/yui_unittests/fixture1.html" type="text/html" style="height: 400px; width: 100%;"></object>
             </section>
 
             <section>
                 <h2>YUI Example 2: Passing test</h2>
-                <ul>
-                    <li>
-                        <h3><a href="code/yui_unittests_2/library.js">Library.js</a></h3>
-                        <object data="code/yui_unittests_2/library.js" type="text/html" style="height: 90px; width: 100%;"></object>
-                    </li>
-                    <li>
-                        <h3><a href="code/yui_unittests_2/unittests.js">Unittests.js</a></h3>
-                        <object data="code/yui_unittests_2/unittests.js" type="text/html" style="height: 300px; width: 100%;"></object>
-                    </li>
-                </ul>
+                <section>
+                    <h3><a href="code/yui_unittests_2/library.js">Library.js</a></h3>
+                    <object data="code/yui_unittests_2/library.js" type="text/html" style="height: 90px; width: 100%;"></object>
+                </section>
+                <section>
+                    <h3><a href="code/yui_unittests_2/unittests.js">Unittests.js</a></h3>
+                    <object data="code/yui_unittests_2/unittests.js" type="text/html" style="height: 300px; width: 100%;"></object>
+                </section>
             </section>
 
             <section>
-                <h1>YUI Example 2: Test output</h1>
+                <h2>YUI Example 2: Test output</h2>
                 <h3>Test output</h3>
                 <object data="code/yui_unittests_2/fixture1.html" type="text/html" style="height: 400px; width: 100%;"></object>
             </section>
 
             <section>
                 <h2>YUI Example 3: Failing test</h2>
-                <ul>
-                    <li>
-                        <h3><a href="code/yui_unittests_3/library.js">Library.js</a></h3>
-                        <object data="code/yui_unittests_3/library.js" type="text/html" style="height: 90px; width: 100%;"></object>
-                    </li>
-                    <li>
-                        <h3><a href="code/yui_unittests_3/unittests.js">Unittests.js</a></h3>
-                        <object data="code/yui_unittests_3/unittests.js" type="text/html" style="height: 800px; width: 100%;"></object>
-                    </li>
-                </ul>
+                <section>
+                    <h3><a href="code/yui_unittests_3/library.js">Library.js</a></h3>
+                    <object data="code/yui_unittests_3/library.js" type="text/html" style="height: 90px; width: 100%;"></object>
+                </section>
+                <section>
+                    <h3><a href="code/yui_unittests_3/unittests.js">Unittests.js</a></h3>
+                    <object data="code/yui_unittests_3/unittests.js" type="text/html" style="height: 800px; width: 100%;"></object>
+                </section>
             </section>
 
             <section>
@@ -176,16 +168,14 @@
 
             <section>
                 <h2>YUI Example 4: Passing test</h2>
-                <ul>
-                    <li>
-                        <h3><a href="code/yui_unittests_4/library.js">Library.js</a></h3>
-                        <object data="code/yui_unittests_4/library.js" type="text/html" style="height: 140px; width: 100%;"></object>
-                    </li>
-                    <li>
-                        <h3><a href="code/yui_unittests_4/unittests.js">Unittests.js</a></h3>
-                        <object data="code/yui_unittests_4/unittests.js" type="text/html" style="height: 300px; width: 100%;"></object>
-                    </li>
-                </ul>
+                <section>
+                    <h3><a href="code/yui_unittests_4/library.js">Library.js</a></h3>
+                    <object data="code/yui_unittests_4/library.js" type="text/html" style="height: 140px; width: 100%;"></object>
+                </section>
+                <section>
+                    <h3><a href="code/yui_unittests_4/unittests.js">Unittests.js</a></h3>
+                    <object data="code/yui_unittests_4/unittests.js" type="text/html" style="height: 300px; width: 100%;"></object>
+                </section>
             </section>
 
             <section>
@@ -197,32 +187,24 @@
             <section>
                 <h2>QUnit</h2>
                 <ul>
-                    <li>Provided by JQuery</li>
-                    <li>Well documented</li>
-                    <li>Provides simple facilities</li>
-                    <li>Very simple usage</li>
-                    <li>Tests JQuery library</li>
-                </ul>
-                <ul>
-                    <li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/how-to-test-your-javascript-code-with-qunit/">How to Test your JavaScript Code with QUnit </a></li>
-                    <li><a href="http://twoguysarguing.wordpress.com/2010/11/06/qunit-and-the-command-line-one-step-closer/">QUnit and the Command Line: One Step Closer,</a></li>
-                    <li><a href="http://www.swift-lizard.com/2009/11/24/test-driven-development-with-jquery-qunit/">Development with jQuery & Qunit</a></li>
-                    <li><a href="https://github.com/benjaminplee/QUnit-CLI">Extensions for running QUnit tests from the command line</a></li>
+                    <li class="fragment">Provided by JQuery</li>
+                    <li class="fragment">Well documented</li>
+                    <li class="fragment">Provides simple facilities</li>
+                    <li class="fragment">Very simple usage</li>
+                    <li class="fragment">Tests JQuery library</li>
                 </ul>
             </section>
 
             <section>
                 <h2>QUnit Example 1: Failing test</h2>
-                <ul>
-                    <li>
-                        <h3><a href="code/qunit_unittests/library.js">Library.js</a></h3>
-                        <object class="lang-js prettyprint" data="code/qunit_unittests/library.js" type="text/html" style="height: 40px; width: 100%;"></object>
-                    </li>
-                    <li>
-                        <h3><a href="code/qunit_unittests/unittests.js">Unittests.js</a></h3>
-                        <object class="lang-js prettyprint" data="code/qunit_unittests/unittests.js" type="text/html" style="height: 300px; width: 100%;"></object>
-                    </li>
-                </ul>
+                <section>
+                    <h3><a href="code/qunit_unittests/library.js">Library.js</a></h3>
+                    <object class="lang-js prettyprint" data="code/qunit_unittests/library.js" type="text/html" style="height: 40px; width: 100%;"></object>
+                </section>
+                <section>
+                    <h3><a href="code/qunit_unittests/unittests.js">Unittests.js</a></h3>
+                    <object class="lang-js prettyprint" data="code/qunit_unittests/unittests.js" type="text/html" style="height: 300px; width: 100%;"></object>
+                </section>
             </section>
 
             <section>
@@ -233,16 +215,14 @@
 
             <section>
                 <h2>QUnit Example 2: Passing test</h2>
-                <ul>
-                    <li>
-                        <h3><a href="code/qunit_unittests_2/library.js">Library.js</a></h3>
-                        <object data="code/qunit_unittests_2/library.js" type="text/html" style="height: 90px; width: 100%;"></object>
-                    </li>
-                    <li>
-                        <h3><a href="code/qunit_unittests_2/unittests.js">Unittests.js</a></h3>
-                        <object data="code/qunit_unittests_2/unittests.js" type="text/html" style="height: 300px; width: 100%;"></object>
-                    </li>
-                </ul>
+                <section>
+                    <h3><a href="code/qunit_unittests_2/library.js">Library.js</a></h3>
+                    <object data="code/qunit_unittests_2/library.js" type="text/html" style="height: 90px; width: 100%;"></object>
+                </section>
+                <section>
+                    <h3><a href="code/qunit_unittests_2/unittests.js">Unittests.js</a></h3>
+                    <object data="code/qunit_unittests_2/unittests.js" type="text/html" style="height: 300px; width: 100%;"></object>
+                </section>
             </section>
 
             <section>
@@ -253,16 +233,14 @@
 
             <section>
                 <h2>QUnit Example 3: Failing test</h2>
-                <ul>
-                    <li>
-                        <h3><a href="code/qunit_unittests_3/library.js">Library.js</a></h3>
-                        <object data="code/qunit_unittests_3/library.js" type="text/html" style="height: 90px; width: 100%;"></object>
-                    </li>
-                    <li>
-                        <h3><a href="code/qunit_unittests_3/unittests.js">Unittests.js</a></h3>
-                        <object data="code/qunit_unittests_3/unittests.js" type="text/html" style="height: 300px; width: 100%;"></object>
-                    </li>
-                </ul>
+                <section>
+                    <h3><a href="code/qunit_unittests_3/library.js">Library.js</a></h3>
+                    <object data="code/qunit_unittests_3/library.js" type="text/html" style="height: 90px; width: 100%;"></object>
+                </section>
+                <section>
+                    <h3><a href="code/qunit_unittests_3/unittests.js">Unittests.js</a></h3>
+                    <object data="code/qunit_unittests_3/unittests.js" type="text/html" style="height: 300px; width: 100%;"></object>
+                </section>
             </section>
 
             <section>
@@ -273,16 +251,14 @@
 
             <section>
                 <h2>QUnit Example 4: Passing test</h2>
-                <ul>
-                    <li>
-                        <h3><a href="code/qunit_unittests_4/library.js">Library.js</a></h3>
-                        <object data="code/qunit_unittests_4/library.js" type="text/html" style="height: 140px; width: 100%;"></object>
-                    </li>
-                    <li>
-                        <h3><a href="code/qunit_unittests_4/unittests.js">Unittests.js</a></h3>
-                        <object data="code/qunit_unittests_4/unittests.js" type="text/html" style="height: 300px; width: 100%;"></object>
-                    </li>
-                </ul>
+                <section>
+                    <h3><a href="code/qunit_unittests_4/library.js">Library.js</a></h3>
+                    <object data="code/qunit_unittests_4/library.js" type="text/html" style="height: 140px; width: 100%;"></object>
+                </section>
+                <section>
+                    <h3><a href="code/qunit_unittests_4/unittests.js">Unittests.js</a></h3>
+                    <object data="code/qunit_unittests_4/unittests.js" type="text/html" style="height: 300px; width: 100%;"></object>
+                </section>
             </section>
 
             <section>
@@ -294,33 +270,33 @@
             <section>
                 <h2>Unit Testing On The Server</h2>
                 <ul>
-                    <li>Running in the browser is slow</li>
-                    <li>Tests are meant to be fast</li>
-                    <li>Do we even care about Browsers?</li>
-                    <li>How can you run Javascript without a Browser?</li>
+                    <li class="fragment">Running in the browser is slow</li>
+                    <li class="fragment">Tests are meant to be fast</li>
+                    <li class="fragment">Do we even care about Browsers?</li>
+                    <li class="fragment">How can you run Javascript without a Browser?</li>
                 </ul>
             </section>
 
             <section>
                 <h2>QUnit and Chutzpah (Webkit)</h2>
                 <ul>
-                    <li>Uses Webkit</li>
-                    <li>A Test Runner using <a href="http://www.phantomjs.org/">PhantomJs</a></li>
-                    <li>Run Javascript from the command line</li>
-                    <li><a href="http://visualstudiogallery.msdn.microsoft.com/71a4e9bd-f660-448f-bd92-f5a65d39b7f0">Or Visual Studio</a></li>
-                    <li>Or Teamcity</li>
-                    <li>Does not need a HTML Harness</li>
-                    <li>Point it at a directory and it'll find your tests and components</li>
+                    <li class="fragment">Uses Webkit</li>
+                    <li class="fragment">A Test Runner using <a href="http://www.phantomjs.org/">PhantomJs</a></li>
+                    <li class="fragment">Run Javascript from the command line</li>
+                    <li class="fragment"><a href="http://visualstudiogallery.msdn.microsoft.com/71a4e9bd-f660-448f-bd92-f5a65d39b7f0">Or Visual Studio</a></li>
+                    <li class="fragment">Or Teamcity</li>
+                    <li class="fragment">Does not need a HTML Harness</li>
+                    <li class="fragment">Point it at a directory and it'll find your tests and components</li>
                 </ul>
             </section>
 
             <section>
                 <h2>QUnit and Chutzpah</h2>
                 <ul>
-                    <li>Pointing at the same location as the scripts
+                    <li class="fragment">Pointing at the same location as the scripts
 							<pre style="background-color: #000; display: block"><code style="font-family:consolas; color:#fff; font-size: 0.5em; line-height: 1em">C:\Projects\JSUnitTesting> bin\Chutzpah1.2.0\chutzpah.console.exe /path code\qunit_unittests</code></pre>
                     </li>
-                    <li>Output:
+                    <li class="fragment">Output:
 							<pre style="background-color: #000; display: block"><code style="font-family:consolas; color:#fff; font-size: 0.5em; line-height: 1em">Chutzpah console test runner (32-bit .NET 4.0.30319.237)
 Copyright (C) 2011 Matthew Manela (http://matthewmanela.com).
 
@@ -342,8 +318,8 @@ File: C:\Projects\JSUnitTesting\code\qunit_unittests\unittests.js
             <section>
                 <h2>Chutzpah and Teamcity</h2>
                 <ul>
-                    <li>Chutzpah will work with Teamcity using the Command Line Build Runner</li>
-                    <li>%system.teamcity.build.workingDir%\tools\Chutzpah1.2.0\chutzpah.console.exe /path %system.teamcity.build.workingDir%\code\js.tests /teamcity</li>
+                    <li class="fragment">Chutzpah will work with Teamcity using the Command Line Build Runner</li>
+                    <li class="fragment">%system.teamcity.build.workingDir%\tools\Chutzpah1.2.0\chutzpah.console.exe /path %system.teamcity.build.workingDir%\code\js.tests /teamcity</li>
                 </ul>
             </section>
 
@@ -355,22 +331,22 @@ File: C:\Projects\JSUnitTesting\code\qunit_unittests\unittests.js
             <section>
                 <h2>QUnit and Rhino (Mozilla)</h2>
                 <ul>
-                    <li>Uses <a href="http://www.mozilla.org/rhino/">Rhino</a></li>
-                    <li>A reference Javascript implementation written in Java</li>
+                    <li class="fragment">Uses <a href="http://www.mozilla.org/rhino/">Rhino</a></li>
+                    <li class="fragment">A reference Javascript implementation written in Java</li>
                 </ul>
             </section>
 
             <section>
                 <h2>QUnit and Rhino</h2>
                 <ul>
-                    <li>Pointing at a harness for Rhino to load the js
+                    <li class="fragment">Pointing at a harness for Rhino to load the js
 							<pre style="background-color: #000; display: block"><code style="font-family:consolas; color:#fff; font-size: 0.5em; line-height: 1em">C:\Projects\JSUnitTesting> java -cp bin\rhino1_7R3\js.jar org.mozilla.javascript.tools.shell.Main -opt -1 rhino-suites\qunit_unittests_4.js</code></pre>
                     </li>
-                    <li>Output (on success, revision 4):
+                    <li class="fragment">Output (on success, revision 4):
 							<pre style="background-color: #000; display: block"><code style="font-family:consolas; color:#fff; font-size: 0.5em; line-height: 1em">PASS undefined
 PASS undefined</code></pre>
                     </li>
-                    <li>Output (on failure, revision 3):
+                    <li class="fragment">Output (on failure, revision 3):
 							<pre style="background-color: #000; display: block"><code style="font-family:consolas; color:#fff; font-size: 0.5em; line-height: 1em">js: "lib/qunit/qunit.js", line 1172: Java class "[B" has no public instance field or method named "setInterval".
         at lib/qunit/qunit.js:1172
         at lib/qunit/qunit.js:1153
@@ -395,13 +371,13 @@ PASS undefined</code></pre>
             <section>
                 <h2>Mocking</h2>
                 <ul>
-                    <li>Components work against an interface</li>
-                    <li>Not an implementation</li>
-                    <li>i.e. Do I really need a real Document object in my component?</li>
-                    <li>Decouple your components from their implementations</li>
-                    <li>Mocking allows us to create fake objects</li>
-                    <li>Focus on the component's test</li>
-                    <li>Use to determine if object behaved correctly</li>
+                    <li class="fragment">Components work against an interface</li>
+                    <li class="fragment">Not an implementation</li>
+                    <li class="fragment">i.e. Do I really need a real Document object in my component?</li>
+                    <li class="fragment">Decouple your components from their implementations</li>
+                    <li class="fragment">Mocking allows us to create fake objects</li>
+                    <li class="fragment">Focus on the component's test</li>
+                    <li class="fragment">Use to determine if object behaved correctly</li>
                 </ul>
             </section>
 
@@ -426,34 +402,34 @@ PASS undefined</code></pre>
             <section>
                 <h3>Code Coverage</h3>
                 <ul>
-                    <li>How do you know if your tests are effective?</li>
-                    <li>What measurements can be made to support your tests?</li>
-                    <li>Are all code paths executed by your tests?</li>
-                    <li><a href="https://github.com/coveraje/coveraje">Coveraje</a></li>
-                    <li><a href="http://siliconforks.com/jscoverage/">JSCoverage</a></li>
-                    <li><a href="http://code.google.com/p/script-cover/">Script-Cover</a></li>
+                    <li class="fragment">How do you know if your tests are effective?</li>
+                    <li class="fragment">What measurements can be made to support your tests?</li>
+                    <li class="fragment">Are all code paths executed by your tests?</li>
+                    <li class="fragment"><a href="https://github.com/coveraje/coveraje">Coveraje</a></li>
+                    <li class="fragment"><a href="http://siliconforks.com/jscoverage/">JSCoverage</a></li>
+                    <li class="fragment"><a href="http://code.google.com/p/script-cover/">Script-Cover</a></li>
                 </ul>
             </section>
 
             <section>
                 <h3>JSCoverage</h3>
                 <ul>
-                    <li>Command line or server</li>
-                    <li>Adds instrumentation to script</li>
-                    <li>Runs in a browser</li>
-                    <li>Can write report to disk</li>
-                    <li>Needs some work to hook into teamcity</li>
+                    <li class="fragment">Command line or server</li>
+                    <li class="fragment">Adds instrumentation to script</li>
+                    <li class="fragment">Runs in a browser</li>
+                    <li class="fragment">Can write report to disk</li>
+                    <li class="fragment">Needs some work to hook into teamcity</li>
                 </ul>
             </section>
 
             <section>
                 <h2>Using JSCoverage</h2>
                 <ul>
-                    <li>
+                    <li class="fragment">
                         <h3>Command line</h3>
                         <pre style="background-color: #000; display: block"><code style="font-family:consolas; color:#fff; font-size: 0.5em; line-height: 1em">C:\Projects\JSUnitTesting> bin\jscoverage-0.5.1\jscoverage.exe code coverage</code></pre>
                     </li>
-                    <li>
+                    <li class="fragment">
                         <h3>Output</h3>
                         <a href="coverage/jscoverage.html?u=/coverage/fullexample/" target="coverage">Click here (does not work embedded)</a>
                     </li>
@@ -463,38 +439,38 @@ PASS undefined</code></pre>
             <section>
                 <h2>Using TDD</h2>
                 <ul>
-                    <li>How do we actually use this and use TDD with Javascript</li>
-                    <li>Build Javascript components</li>
-                    <li>Remove dependancies so they really are components</li>
-                    <li>Use software engineering techniques to Keep Is Simple</li>
+                    <li class="fragment">How do we actually use this and use TDD with Javascript</li>
+                    <li class="fragment">Build Javascript components</li>
+                    <li class="fragment">Remove dependancies so they really are components</li>
+                    <li class="fragment">Use software engineering techniques to Keep Is Simple</li>
                 </ul>
             </section>
 
             <section>
                 <h2>Building components</h2>
                 <ul>
-                    <li>Use closures to take advantage of scope</li>
-                    <li>Plenty of interchangable class/module patterns</li>
-                    <li>Remove dependancies!</li>
-                    <li>Don't depend on anything! $, document, window, non-language global objects</li>
-                    <li>DOMParser yes! XMLSerializer yes! XSLTProcessor no!</li>
+                    <li class="fragment">Use closures to take advantage of scope</li>
+                    <li class="fragment">Plenty of interchangable class/module patterns</li>
+                    <li class="fragment">Remove dependancies!</li>
+                    <li class="fragment">Don't depend on anything! $, document, window, non-language global objects</li>
+                    <li class="fragment">DOMParser yes! XMLSerializer yes! XSLTProcessor no!</li>
                 </ul>
             </section>
 
             <section>
                 <h2>Writing Tests</h2>
                 <ul>
-                    <li>Think of a test as the 3 A's</li>
-                    <li>Arrange</li>
-                    <li>
+                    <li class="fragment">Think of a test as the 3 A's</li>
+                    <li class="fragment">Arrange</li>
+                    <li class="fragment">
                         <pre><code style="font-family:consolas; font-size: 0.5em; line-height: 1em">var inputData='The Owl and the Pussycat';</code></pre>
                     </li>
                     <li>Act</li>
-                    <li>
+                    <li class="fragment">
                         <pre><code style="font-family:consolas; font-size: 0.5em; line-height: 1em">var output= obj.methodUnderTest(inputData);</code></pre>
                     </li>
                     <li>Assert</li>
-                    <li>
+                    <li class="fragment">
                         <pre><code style="font-family:consolas; font-size: 0.5em; line-height: 1em">equals(output, 'Went to sea', 'Output not as expected.');</code></pre>
                     </li>
                 </ul>
@@ -503,13 +479,13 @@ PASS undefined</code></pre>
             <section>
                 <h2>Test Fixtures</h2>
                 <ul>
-                    <li>A group of tests</li>
-                    <li>All tests for one component/JS in one file</li>
-                    <li>Naming tests becomes important</li>
-                    <li>Testdox format/Kent Beck seems a good standard, testSomeFeatureIsSomething </li>
-                    <li>Or even <a href="http://osherove.com/blog/2005/4/3/naming-standards-for-unit-tests.html">[MethodName_StateUnderTest_ExpectedBehavior]</a></li>
-                    <li><a href="http://dannorth.net/introducing-bdd/">There's a lot of ideas out there</a></li>
-                    <li>Be responsible</li>
+                    <li class="fragment">A group of tests</li>
+                    <li class="fragment">All tests for one component/JS in one file</li>
+                    <li class="fragment">Naming tests becomes important</li>
+                    <li class="fragment">Testdox format/Kent Beck seems a good standard, testSomeFeatureIsSomething </li>
+                    <li class="fragment">Or even <a href="http://osherove.com/blog/2005/4/3/naming-standards-for-unit-tests.html">[MethodName_StateUnderTest_ExpectedBehavior]</a></li>
+                    <li class="fragment"><a href="http://dannorth.net/introducing-bdd/">There's a lot of ideas out there</a></li>
+                    <li class="fragment">Be responsible</li>
                 </ul>
             </section>
         </div>
