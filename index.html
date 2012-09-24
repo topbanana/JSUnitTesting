@@ -11,7 +11,6 @@
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="css/main.css">
@@ -294,10 +293,10 @@
                 <h2>QUnit and Chutzpah</h2>
                 <ul>
                     <li class="fragment">Pointing at the same location as the scripts
-							<pre style="background-color: #000; display: block"><code style="font-family:consolas; color:#fff; font-size: 0.5em; line-height: 1em">C:\Projects\JSUnitTesting> bin\Chutzpah1.2.0\chutzpah.console.exe /path code\qunit_unittests</code></pre>
+							<pre style="background-color: #000; display: block"><code class="dos" style="font-family:consolas; color:#fff;">C:\Projects\JSUnitTesting> bin\Chutzpah1.2.0\chutzpah.console.exe /path code\qunit_unittests</code></pre>
                     </li>
                     <li class="fragment">Output:
-							<pre style="background-color: #000; display: block"><code style="font-family:consolas; color:#fff; font-size: 0.5em; line-height: 1em">Chutzpah console test runner (32-bit .NET 4.0.30319.237)
+							<pre style="background-color: #000; display: block"><code class="dos" style="font-family:consolas; color:#fff;">Chutzpah console test runner (32-bit .NET 4.0.30319.237)
 Copyright (C) 2011 Matthew Manela (http://matthewmanela.com).
 
 chutzpah.dll:     Version 1.2.0.29
@@ -340,14 +339,14 @@ File: C:\Projects\JSUnitTesting\code\qunit_unittests\unittests.js
                 <h2>QUnit and Rhino</h2>
                 <ul>
                     <li class="fragment">Pointing at a harness for Rhino to load the js
-							<pre style="background-color: #000; display: block"><code style="font-family:consolas; color:#fff; font-size: 0.5em; line-height: 1em">C:\Projects\JSUnitTesting> java -cp bin\rhino1_7R3\js.jar org.mozilla.javascript.tools.shell.Main -opt -1 rhino-suites\qunit_unittests_4.js</code></pre>
+							<pre style="background-color: #000; display: block"><code class="dos" style="font-family:consolas; color:#fff;">C:\Projects\JSUnitTesting> java -cp bin\rhino1_7R3\js.jar org.mozilla.javascript.tools.shell.Main -opt -1 rhino-suites\qunit_unittests_4.js</code></pre>
                     </li>
                     <li class="fragment">Output (on success, revision 4):
-							<pre style="background-color: #000; display: block"><code style="font-family:consolas; color:#fff; font-size: 0.5em; line-height: 1em">PASS undefined
+							<pre style="background-color: #000; display: block"><code class="dos" style="font-family:consolas; color:#fff;">PASS undefined
 PASS undefined</code></pre>
                     </li>
                     <li class="fragment">Output (on failure, revision 3):
-							<pre style="background-color: #000; display: block"><code style="font-family:consolas; color:#fff; font-size: 0.5em; line-height: 1em">js: "lib/qunit/qunit.js", line 1172: Java class "[B" has no public instance field or method named "setInterval".
+							<pre style="background-color: #000; display: block"><code class="dos" style="font-family:consolas; color:#fff;">js: "lib/qunit/qunit.js", line 1172: Java class "[B" has no public instance field or method named "setInterval".
         at lib/qunit/qunit.js:1172
         at lib/qunit/qunit.js:1153
         at lib/qunit/qunit.js:1236
@@ -396,7 +395,7 @@ PASS undefined</code></pre>
             <section>
                 <h2>JSMocks Example Output</h2>
                 <h3>Index.html</h3>
-                <object data="code/fullexample" type="text/html" style="height: 700px; width: 100%;"></object>
+                <object data="code/fullexample/index.html" type="text/html" style="height: 700px; width: 100%;"></object>
             </section>
 
             <section>
@@ -424,10 +423,10 @@ PASS undefined</code></pre>
 
             <section>
                 <h2>Using JSCoverage</h2>
-                <ul>
+                <ul style="width: 800px">
                     <li class="fragment">
                         <h3>Command line</h3>
-                        <pre style="background-color: #000; display: block"><code style="font-family:consolas; color:#fff; font-size: 0.5em; line-height: 1em">C:\Projects\JSUnitTesting> bin\jscoverage-0.5.1\jscoverage.exe code coverage</code></pre>
+                        <pre style="width: 800px" style="background-color: #000; display: block"><code class="dos" style="font-family:consolas; color:#fff;">C:\Projects\JSUnitTesting> bin\jscoverage-0.5.1\jscoverage.exe code coverage</code></pre>
                     </li>
                     <li class="fragment">
                         <h3>Output</h3>
@@ -459,19 +458,19 @@ PASS undefined</code></pre>
 
             <section>
                 <h2>Writing Tests</h2>
-                <ul>
+                <ul style="width: 700px">
                     <li class="fragment">Think of a test as the 3 A's</li>
                     <li class="fragment">Arrange</li>
                     <li class="fragment">
-                        <pre><code style="font-family:consolas; font-size: 0.5em; line-height: 1em">var inputData='The Owl and the Pussycat';</code></pre>
+                        <pre><code class="javascript" style="font-family:consolas;">var inputData='The Owl and the Pussycat';</code></pre>
                     </li>
-                    <li>Act</li>
+                    <li class="fragment">Act</li>
                     <li class="fragment">
-                        <pre><code style="font-family:consolas; font-size: 0.5em; line-height: 1em">var output= obj.methodUnderTest(inputData);</code></pre>
+                        <pre><code class="javascript" style="font-family:consolas;">var output= obj.methodUnderTest(inputData);</code></pre>
                     </li>
-                    <li>Assert</li>
+                    <li class="fragment">Assert</li>
                     <li class="fragment">
-                        <pre><code style="font-family:consolas; font-size: 0.5em; line-height: 1em">equals(output, 'Went to sea', 'Output not as expected.');</code></pre>
+                        <pre><code class="javascript" style="font-family:consolas;">equals(output, 'Went to sea', 'Output not as expected.');</code></pre>
                     </li>
                 </ul>
             </section>
