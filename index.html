@@ -556,11 +556,11 @@ YUI({ logInclude: { TestRunner: true } })
 
 			<section>
 				<h2>QUnit and Chutzpah</h2>
-					<p class="fragment">Pointing at the same location as the scripts</p>
-					<pre class="fragment"><code language="dos">C:\Projects\JSUnitTesting> bin\Chutzpah1.2.0\chutzpah.console.exe
+				<p class="fragment">Pointing at the same location as the scripts</p>
+				<pre class="fragment"><code language="dos">C:\Projects\JSUnitTesting> bin\Chutzpah1.2.0\chutzpah.console.exe
 		/path code\qunit_unittests</code></pre>
-					<p class="fragment">Output:</p>
-					<pre class="fragment"><code language="dos">Chutzpah console test runner (32-bit .NET 4.0.30319.237)
+				<p class="fragment">Output:</p>
+				<pre class="fragment"><code language="dos">Chutzpah console test runner (32-bit .NET 4.0.30319.237)
 Copyright (C) 2011 Matthew Manela (http://matthewmanela.com).
 
 chutzpah.dll:     Version 1.2.0.29
@@ -604,11 +604,13 @@ File: C:\Projects\JSUnitTesting\code\qunit_unittests\unittests.js
 					<p>Pointing at a harness for Rhino to load the js</p>
 					<pre><code class="dos">C:\Projects\JSUnitTesting> java -cp bin\rhino1_7R3\js.jar
 	org.mozilla.javascript.tools.shell.Main -opt -1
-	rhino-suites\qunit_unittests_4.js</code></pre></section>
+	rhino-suites\qunit_unittests_4.js</code></pre>
+				</section>
 				<section>
-					<p >Output (on success, revision 4):</p>
+					<p>Output (on success, revision 4):</p>
 					<pre><code class="dos">PASS undefined
-PASS undefined</code></pre></section>
+PASS undefined</code></pre>
+				</section>
 				<section>
 					<p>Output (on failure, revision 3):</p>
 					<pre><code class="dos">js: "lib/qunit/qunit.js", line 1172: Java class "[B" has no public
@@ -628,7 +630,8 @@ PASS undefined</code></pre></section>
         at lib/qunit/qunit.js:246
         at lib/qunit/qunit.js:293
         at code/qunit_unittests_3/unittests.js:12
-        at rhino-suites\qunit_unittests_3.js:12</code></pre></section>
+        at rhino-suites\qunit_unittests_3.js:12</code></pre>
+				</section>
 			</section>
 
 			<section>
@@ -646,15 +649,152 @@ PASS undefined</code></pre></section>
 
 			<section>
 				<h2>JSMocks Example</h2>
-				<h3><a href="code/fullexample/library.js">Library.js</a></h3>
-				<object data="code/fullexample/library.js" type="text/html" style="height: 550px; width: 100%;"></object>
+				<section>
+					<h3><a href="code/fullexample/library.js">Library.js</a></h3>
+					<pre><code class="javascript">PageXmlIndenter= (function(document, xsltprocessor) {
+	var $_= document, $p= new DOMParser(), $s= new XMLSerializer();
+	var _xsl= $p.parseFromString('&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;&lt;xsl:output method="xml" encoding="ISO-8859-1"/&gt;&lt;xsl:param name="indent-increment" select="\'   \'"/&gt;&lt;xsl:template name="newline"&gt;&lt;xsl:text disable-output-escaping="yes"&gt;\n&lt;/xsl:text&gt;&lt;/xsl:template&gt;&lt;xsl:template match="comment() | processing-instruction()"&gt;&lt;xsl:param name="indent" select="\'\'"/&gt;&lt;xsl:call-template name="newline"/&gt;&lt;xsl:value-of select="$indent"/&gt;&lt;xsl:copy /&gt;&lt;/xsl:template&gt;&lt;xsl:template match="text()"&gt;&lt;xsl:param name="indent" select="\'\'"/&gt;&lt;xsl:call-template name="newline"/&gt;&lt;xsl:value-of select="$indent"/&gt;&lt;xsl:value-of select="normalize-space(.)"/&gt;&lt;/xsl:template&gt;&lt;xsl:template match="text()[normalize-space(.)=\'\']"/&gt;&lt;xsl:template match="*"&gt;&lt;xsl:param name="indent" select="\'\'"/&gt;&lt;xsl:call-template name="newline"/&gt;&lt;xsl:value-of select="$indent"/&gt;&lt;xsl:choose&gt;&lt;xsl:when test="count(child::*) &gt; 0"&gt;&lt;xsl:copy&gt;&lt;xsl:copy-of select="@*"/&gt;&lt;xsl:apply-templates select="*|text()"&gt;&lt;xsl:with-param name="indent" select="concat ($indent, $indent-increment)"/&gt;&lt;/xsl:apply-templates&gt;&lt;xsl:call-template name="newline"/&gt;&lt;xsl:value-of select="$indent"/&gt;&lt;/xsl:copy&gt;&lt;/xsl:when&gt;&lt;xsl:otherwise&gt;&lt;xsl:copy-of select="."/&gt;&lt;/xsl:otherwise&gt;&lt;/xsl:choose&gt;&lt;/xsl:template&gt;&lt;/&lt;xsl:stylesheet&gt;', "text/xml");
+	xsltprocessor.importStylesheet(_xsl);
+	return {
+		transform: function(inputId, outputId) {
+			var input= $_.getElementById(inputId);
+			if (input) {
+				var output= $_.getElementById(outputId);
+	// ...
+</code></pre>
+				</section>
+				<section>
+					<h3><a href="code/fullexample/library.js">Library.js</a></h3>
+					<pre><code class="javascript">	// ...
+				if (output) {
+					output.innerHTML= $s.serializeToString(
+						xsltprocessor.transformToFragment(
+							$p.parseFromString(
+								input.value.replace(/\&amp;lt;/g, "&lt;").replace(/\&amp;gt;/g, "&gt;")
+							, "text/xml")
+						, $_)
+					).replace(/\&lt;/g, "&amp;lt;").replace(/\&gt;/g, "&amp;gt;");
+				}
+			}
+		}
+	};
+});
+</code></pre>
+				</section>
 			</section>
 
 			<section>
 				<h2>JSMocks Example</h2>
-				<h3><a href="code/fullexample/unittests.js">Unittests.js</a></h3>
-				<object data="code/fullexample/unittests.js" type="text/html" style="height: 550px; width: 100%;"></object>
-			</section>
+				<section>
+					<h3><a href="code/fullexample/unittests.js">Unittests.js</a></h3>
+					<pre><code class="javascript">var mockControl = new MockControl();
+function iDocument() {};
+iDocument.prototype= {
+	getElementById: function() {}
+};
+function iXSLTProcessor() {};
+iXSLTProcessor.prototype= {
+	importStylesheet : function() {},
+	transformToFragment: function() {}
+}
+var _document= mockControl.createMock(iDocument);
+var _XSLTProcessor= mockControl.createMock(iXSLTProcessor);
+
+testPageXmlIndenter= new PageXmlIndenter(_document, _XSLTProcessor);
+// ...
+</code></pre>
+				</section>
+				<section>
+					<h3><a href="code/fullexample/unittests.js">Unittests.js</a></h3>
+					<pre><code class="javascript">// ...
+test("testPageXmlIndenter never returns object", function() {
+	ok(testPageXmlIndenter, "testPageXmlIndenter exists");
+	ok(testPageXmlIndenter.transform, 
+						"testPageXmlIndenter.transform exists");
+	ok(QUnit.is("function", testPageXmlIndenter.transform), 
+						"testPageXmlIndenter.transform is function ok");
+
+	_document.expect().getElementById().andReturn(null);
+	ok(QUnit.is("undefined", testPageXmlIndenter.transform()), 
+						"testPageXmlIndenter.transform() is undefined");
+
+	_document.expect().getElementById().andReturn(null);
+	ok(QUnit.is("undefined", testPageXmlIndenter.transform(
+						"onearg")), 
+						"testPageXmlIndenter.transform(nonexistanthtmlelement)"+
+						" is undefined");
+	// ...</code></pre>
+				</section>
+				<section>
+					<h3><a href="code/fullexample/unittests.js">Unittests.js</a></h3>
+					<pre><code>	// ...
+					_document.expect().getElementById().andReturn(null);
+	ok(QUnit.is("undefined", testPageXmlIndenter.transform(null)), 
+						"testPageXmlIndenter.transform(null) is undefined");
+
+	_document.expect().getElementById().andReturn(null);
+	ok(QUnit.is("undefined", testPageXmlIndenter.transform(null, 
+						"onearg")), 
+						"testPageXmlIndenter.transform(
+						null,nonexistanthtmlelement) is undefined");
+
+	_document.expect().getElementById().andReturn(null);
+		ok(QUnit.is("undefined", testPageXmlIndenter.transform("onearg"
+						, "twoarg")), 
+						"testPageXmlIndenter.transform(nonexistanthtmlelement1, 
+						nonexistanthtmlelement2) is undefined");
+	// ...
+</code></pre>
+				</section>
+				<section>
+					<h3><a href="code/fullexample/unittests.js">Unittests.js</a></h3>
+					<pre><code>	// ...
+	_document.expect().getElementById().andReturn({id: "input", 
+						value: "&lt;test /&gt;"});
+	_document.expect().getElementById().andReturn(null);
+	_XSLTProcessor.expect().transformToFragment().andReturn(
+						new DOMParser().parseFromString(
+						"&lt;test /&gt;", "text/xml"));
+	ok(QUnit.is("undefined", testPageXmlIndenter.transform(
+						"onearg", "twoarg")), 
+						"testPageXmlIndenter.transform(
+						realelement, realelement) is undefined");
+
+	_document.expect().getElementById().andReturn({id: "input", 
+						value: "&lt;test /&gt;"});
+	_document.expect().getElementById().andReturn({id: "output"});
+	ok(QUnit.is("undefined", testPageXmlIndenter.transform("onearg"
+						, "twoarg")), 
+						"testPageXmlIndenter.transform(
+						realelement, realelement) is undefined");
+});
+// ...</code></pre>
+				</section>
+						<section>
+					<h3><a href="code/fullexample/unittests.js">Unittests.js</a></h3>
+					<pre><code>// ...
+test("testPageXmlIndenter transforms xml", function() {
+	// arrange
+	_document.expect().getElementById().andReturn({id: "input", 
+						value: "&lt;test /&gt;"});
+	var outputHtmlElement= {id: "output"};
+	_document.expect().getElementById().andReturn(
+						outputHtmlElement);
+	_XSLTProcessor.expect().transformToFragment().andReturn(
+						new DOMParser().parseFromString(
+						"&lt;test /&gt;", "text/xml"));
+	// act
+	testPageXmlIndenter.transform("onearg", "twoarg")
+	// assert
+	ok(QUnit.is("string", outputHtmlElement.innerHTML), 
+						"testPageXmlIndenter.transform places string into innerHtml");
+	ok(outputHtmlElement.innerHTML=="&lt;test/&gt;", 
+						"testPageXmlIndenter outputs correct markup, was "+
+						outputHtmlElement.innerHTML)
+});
+// ...</code></pre>
+				</section>
+	</section>
 
 			<section>
 				<h2>JSMocks Example Output</h2>
