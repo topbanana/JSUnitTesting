@@ -53,5 +53,5 @@ test("testPageXmlIndenter transforms xml", function() {
 	testPageXmlIndenter.transform("onearg", "twoarg")
 	// assert
 	ok(QUnit.is("string", outputHtmlElement.innerHTML), "testPageXmlIndenter.transform places string into innerHtml");
-	ok(outputHtmlElement.innerHTML=="&lt;test/&gt;", "testPageXmlIndenter outputs correct markup, was "+outputHtmlElement.innerHTML)
+	ok((outputHtmlElement.innerHTML == "&lt;test /&gt;") || (outputHtmlElement.innerHTML == "&lt;test/&gt;"), "testPageXmlIndenter outputs correct markup, was " + outputHtmlElement.innerHTML)
 });
