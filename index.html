@@ -455,7 +455,17 @@ YUI({ logInclude: { TestRunner: true } })
 				</section>
 				<section>
 					<h3><a href="code/qunit_unittests/unittests.js">Unittests.js</a></h3>
-					<object class="lang-js prettyprint" data="code/qunit_unittests/unittests.js" type="text/html" style="height: 300px; width: 100%;"></object>
+					<pre><code class="javascript">/// &lt;reference path="library.js" /&gt;
+module("TestableObject")
+
+test("TestableObject Exists", function () {
+	// arrange
+	// act
+	var type= typeof(TestableObject);
+	// assert
+	equals(type, "object", "TestableObject to be object");
+});
+</code></pre>
 				</section>
 			</section>
 
@@ -476,7 +486,17 @@ YUI({ logInclude: { TestRunner: true } })
 				</section>
 				<section>
 					<h3><a href="code/qunit_unittests_2/unittests.js">Unittests.js</a></h3>
-					<object data="code/qunit_unittests_2/unittests.js" type="text/html" style="height: 300px; width: 100%;"></object>
+					<pre><code class="javascript">/// &lt;reference path="library.js" /&gt;
+module("TestableObject")
+
+test("TestableObject Exists", function () {
+	// arrange
+	// act
+	var type= typeof(TestableObject);
+	// assert
+	equals(type, "object", "TestableObject to be object");
+});
+</code></pre>
 				</section>
 			</section>
 
@@ -497,7 +517,25 @@ YUI({ logInclude: { TestRunner: true } })
 				</section>
 				<section>
 					<h3><a href="code/qunit_unittests_3/unittests.js">Unittests.js</a></h3>
-					<object data="code/qunit_unittests_3/unittests.js" type="text/html" style="height: 300px; width: 100%;"></object>
+					<pre><code class="javascript">/// <reference path="library.js" />
+module("TestableObject")
+
+test("TestableObject Exists", function () {
+	// arrange
+	// act
+	var type= typeof(TestableObject);
+	// assert
+	equals(type, "object", "TestableObject to be object");
+});
+	
+test("TestableObject.GetName returns string", function() {
+	// arrange
+	// act
+	var type= typeof(TestableObject.getName());
+	// arrange
+	equals(type, "string", "TestableObject.getName() to be object")
+});
+</code></pre>
 				</section>
 			</section>
 
@@ -521,7 +559,25 @@ YUI({ logInclude: { TestRunner: true } })
 				</section>
 				<section>
 					<h3><a href="code/qunit_unittests_4/unittests.js">Unittests.js</a></h3>
-					<object data="code/qunit_unittests_4/unittests.js" type="text/html" style="height: 300px; width: 100%;"></object>
+					<pre><code class="javascript">/// <reference path="library.js" />
+module("TestableObject")
+
+test("TestableObject Exists", function () {
+	// arrange
+	// act
+	var type= typeof(TestableObject);
+	// assert
+	equals(type, "object", "TestableObject to be object");
+});
+	
+test("TestableObject.GetName returns string", function() {
+	// arrange
+	// act
+	var type= typeof(TestableObject.getName());
+	// arrange
+	equals(type, "string", "TestableObject.getName() to be object")
+});
+</code></pre>
 				</section>
 			</section>
 
@@ -579,15 +635,10 @@ File: C:\Projects\JSUnitTesting\code\qunit_unittests\unittests.js
 
 			<section>
 				<h2>Chutzpah and Teamcity</h2>
-				<ul>
-					<li class="fragment">Chutzpah will work with Teamcity using the Command Line Build Runner</li>
-					<li class="fragment">%system.teamcity.build.workingDir%\tools\Chutzpah1.2.0\chutzpah.console.exe /path %system.teamcity.build.workingDir%\code\js.tests /teamcity</li>
-				</ul>
-			</section>
-
-			<section>
-				<h2>Chutzpah and Teamcity: Example</h2>
-				<object data="http://teamcity/viewLog.html?buildId=727069&tab=buildResultsDiv&buildTypeId=bt1915" type="text/html" style="height: 750px; width: 100%;"></object>
+				<p class="fragment">Chutzpah will work with Teamcity using the Command Line Build Runner</p>
+				<pre class="fragment"><code class="dos">%system.teamcity.build.workingDir%\tools\Chutzpah1.2.0\
+					chutzpah.console.exe /path 
+					%system.teamcity.build.workingDir%\code\js.tests /teamcity</code></pre>
 			</section>
 
 			<section>
@@ -830,7 +881,8 @@ test("testPageXmlIndenter transforms xml", function() {
 				<ul style="width: 800px">
 					<li class="fragment">
 						<h3>Command line</h3>
-						<pre style="width: 800px" style="background-color: #000; display: block"><code class="dos" style="font-family:consolas; color:#fff;">C:\Projects\JSUnitTesting> bin\jscoverage-0.5.1\jscoverage.exe code coverage</code></pre>
+						<pre><code class="dos">C:\Projects\JSUnitTesting> bin\jscoverage-0.5.1\jscoverage.exe
+							code coverage</code></pre>
 					</li>
 					<li class="fragment">
 						<h3>Output</h3>
@@ -866,15 +918,15 @@ test("testPageXmlIndenter transforms xml", function() {
 					<li class="fragment">Think of a test as the 3 A's</li>
 					<li class="fragment">Arrange</li>
 					<li class="fragment">
-						<pre><code class="javascript" style="font-family:consolas;">var inputData='The Owl and the Pussycat';</code></pre>
+						<pre><code class="javascript">var inputData='The Owl and the Pussycat';</code></pre>
 					</li>
 					<li class="fragment">Act</li>
 					<li class="fragment">
-						<pre><code class="javascript" style="font-family:consolas;">var output= obj.methodUnderTest(inputData);</code></pre>
+						<pre><code class="javascript">var output= obj.methodUnderTest(inputData);</code></pre>
 					</li>
 					<li class="fragment">Assert</li>
 					<li class="fragment">
-						<pre><code class="javascript" style="font-family:consolas;">equals(output, 'Went to sea', 'Output not as expected.');</code></pre>
+						<pre><code class="javascript">equals(output, 'Went to sea', 'Output not as expected.')</code></pre>
 					</li>
 				</ul>
 			</section>
