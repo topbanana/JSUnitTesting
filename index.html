@@ -260,32 +260,180 @@
 				</section>
 				<section>
 					<h3><a href="code/yui_unittests_3/unittests.js">Unittests.js</a></h3>
-					<object data="code/yui_unittests_3/unittests.js" type="text/html" style="height: 800px; width: 100%;"></object>
+					<pre><code class="javascript">			
+YUI({ logInclude: { TestRunner: true } })
+	.use('node', 'test', 'json', function (Y) {
+
+	var suite = new Y.Test.Suite({
+		name: "TestableObject Fixture",
+		setUp: function () {
+			//test-suite-level setup
+		},
+		tearDown: function () {
+			//test-suite-level teardown
+		}
+	});
+	// ...</code></pre>
+				</section>
+				<section>
+					<h3><a href="code/yui_unittests_3/unittests.js">Unittests.js</a></h3>
+					<pre><code class="javascript">	// ...
+	suite.add(new Y.Test.Case({
+		name: "TestableObject Exists",
+		testTestableObjectExists: function () {
+			// arrange
+			// act
+			// assert
+			Y.Assert.isObject(TestableObject);
+		}
+	}));
+	// ...</code></pre>
+				</section>
+				<section>
+					<h3><a href="code/yui_unittests_3/unittests.js">Unittests.js</a></h3>
+					<pre><code class="javascript">	// ...
+	suite.add(new Y.Test.Case({
+		name: "TestableObject.GetName returns string",
+		testTestableObjectGetName: function() {
+			// arrange
+			// act
+			var result= TestableObject.getName();
+			// arrange
+			Y.Assert.isString(result);
+		}
+	}));
+	// ...</code></pre>
+				</section>
+				<section>
+					<h3><a href="code/yui_unittests_3/unittests.js">Unittests.js</a></h3>
+					<pre><code class="javascript">	// ...
+	Y.Test.Runner.subscribe(Y.Test.Runner.TEST_SUITE_COMPLETE_EVENT
+		, handleTestResults); 
+	Y.Test.Runner.add(suite);
+	Y.Test.Runner.run();
+	 
+	function handleTestResults(results) {
+		document.getElementById("log").innerHTML= 
+			htmlify(Y.Test.Format.JUnitXML(results.results))
+		prettyPrint();
+	}
+
+});
+</code></pre>
 				</section>
 			</section>
 
 			<section>
 				<h2>YUI Example 3: Test output</h2>
 				<h3>Test output</h3>
-				<object data="code/yui_unittests_3/fixture1.html" type="text/html" style="height: 400px; width: 100%;"></object>
+				<pre><code class="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;testsuite name="TestableObject Exists" tests="1" failures="0"
+	time="0.114"&gt;
+&lt;testcase name="testTestableObjectExists" time="0.002"&gt;
+&lt;/testcase&gt;
+&lt;/testsuite&gt;
+&lt;testsuite name="TestableObject.GetName returns string"
+	tests="1" failures="1" time="0.68"&gt;
+&lt;testcase name="testTestableObjectGetName" time="0.006"&gt;
+&lt;failure message="Unexpected error: TestableObject.getName is
+	not a function"&gt;
+&lt;![CDATA[Unexpected error: TestableObject.getName is not a
+	function]]&gt;
+&lt;/failure&gt;
+&lt;/testcase&gt;
+&lt;/testsuite&gt;</code></pre>
 			</section>
 
 			<section>
 				<h2>YUI Example 4: Passing test</h2>
 				<section>
 					<h3><a href="code/yui_unittests_4/library.js">Library.js</a></h3>
-					<object data="code/yui_unittests_4/library.js" type="text/html" style="height: 140px; width: 100%;"></object>
+					<pre><code class="javascript">TestableObject = function () {
+	return {
+		getName: function() {
+			return "I am TestableObject";
+		}
+	}
+} ();</code></pre>
 				</section>
 				<section>
 					<h3><a href="code/yui_unittests_4/unittests.js">Unittests.js</a></h3>
-					<object data="code/yui_unittests_4/unittests.js" type="text/html" style="height: 300px; width: 100%;"></object>
+					<pre><code class="javascript">YUI({ logInclude: { TestRunner: true } })
+	.use('node', 'test', 'json', function (Y) {
+
+	var suite = new Y.Test.Suite({
+		name: "TestableObject Fixture",
+		setUp: function () {
+			//test-suite-level setup
+		},
+		tearDown: function () {
+			//test-suite-level teardown
+		}
+	});
+	// ...</code></pre>
+				</section>
+				<section>
+					<h3><a href="code/yui_unittests_4/unittests.js">Unittests.js</a></h3>
+					<pre><code class="javascript">	// ...
+	suite.add(new Y.Test.Case({
+		name: "TestableObject Exists",
+		testTestableObjectExists: function () {
+			// arrange
+			// act
+			// assert
+			Y.Assert.isObject(TestableObject);
+		}
+	}));
+	// ...</code></pre>
+				</section>
+				<section>
+					<h3><a href="code/yui_unittests_4/unittests.js">Unittests.js</a></h3>
+					<pre><code class="javascript">	// ...
+	suite.add(new Y.Test.Case({
+		name: "TestableObject.GetName returns string",
+		testTestableObjectGetName: function() {
+			// arrange
+			// act
+			var result= TestableObject.getName();
+			// arrange
+			Y.Assert.isString(result);
+		}
+	}));
+	// ...</code></pre>
+				</section>
+				<section>
+					<h3><a href="code/yui_unittests_4/unittests.js">Unittests.js</a></h3>
+					<pre><code class="javascript">	// ...
+	Y.Test.Runner.subscribe(Y.Test.Runner.TEST_SUITE_COMPLETE_EVENT
+		, handleTestResults); 
+	Y.Test.Runner.add(suite);
+	Y.Test.Runner.run();
+	 
+	function handleTestResults(results) {
+		document.getElementById("log").innerHTML=
+			htmlify(Y.Test.Format.JUnitXML(results.results))
+		prettyPrint();
+	}
+
+});
+</code></pre>
 				</section>
 			</section>
 
 			<section>
 				<h2>YUI Example 4: Test output</h2>
 				<h3>Test output</h3>
-				<object data="code/yui_unittests_4/fixture1.html" type="text/html" style="height: 400px; width: 100%;"></object>
+				<pre><code class="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;testsuite name="TestableObject Exists" tests="1" failures="0"
+	time="0.093"&gt;
+&lt;testcase name="testTestableObjectExists" time="0.002"&gt;
+&lt;/testcase&gt;
+&lt;/testsuite&gt;
+&lt;testsuite name="TestableObject.GetName returns string"
+	tests="1" failures="0" time="0.021"&gt;
+&lt;testcase name="testTestableObjectGetName" time="0.002"&gt;
+&lt;/testcase&gt;
+&lt;/testsuite&gt;</code></pre>
 			</section>
 
 			<section>
@@ -303,7 +451,7 @@
 				<h2>QUnit Example 1: Failing test</h2>
 				<section>
 					<h3><a href="code/qunit_unittests/library.js">Library.js</a></h3>
-					<object class="lang-js prettyprint" data="code/qunit_unittests/library.js" type="text/html" style="height: 40px; width: 100%;"></object>
+					<pre><code class="javascript">// empty js file</code></pre>
 				</section>
 				<section>
 					<h3><a href="code/qunit_unittests/unittests.js">Unittests.js</a></h3>
@@ -321,7 +469,10 @@
 				<h2>QUnit Example 2: Passing test</h2>
 				<section>
 					<h3><a href="code/qunit_unittests_2/library.js">Library.js</a></h3>
-					<object data="code/qunit_unittests_2/library.js" type="text/html" style="height: 90px; width: 100%;"></object>
+					<pre><code class="javascript">TestableObject = function () {
+	return {
+	}
+} ();</code></pre>
 				</section>
 				<section>
 					<h3><a href="code/qunit_unittests_2/unittests.js">Unittests.js</a></h3>
@@ -339,7 +490,10 @@
 				<h2>QUnit Example 3: Failing test</h2>
 				<section>
 					<h3><a href="code/qunit_unittests_3/library.js">Library.js</a></h3>
-					<object data="code/qunit_unittests_3/library.js" type="text/html" style="height: 90px; width: 100%;"></object>
+					<pre><code class="javascript">TestableObject = function () {
+	return {
+	}
+} ();</code></pre>
 				</section>
 				<section>
 					<h3><a href="code/qunit_unittests_3/unittests.js">Unittests.js</a></h3>
@@ -357,7 +511,13 @@
 				<h2>QUnit Example 4: Passing test</h2>
 				<section>
 					<h3><a href="code/qunit_unittests_4/library.js">Library.js</a></h3>
-					<object data="code/qunit_unittests_4/library.js" type="text/html" style="height: 140px; width: 100%;"></object>
+					<pre><code class="javascript">TestableObject = function () {
+	return {
+		getName: function() {
+			return "I am TestableObject";
+		}
+	}
+} ();</code></pre>
 				</section>
 				<section>
 					<h3><a href="code/qunit_unittests_4/unittests.js">Unittests.js</a></h3>
@@ -396,27 +556,25 @@
 
 			<section>
 				<h2>QUnit and Chutzpah</h2>
-				<ul>
-					<li class="fragment">Pointing at the same location as the scripts
-							<pre style="background-color: #000; display: block"><code class="dos" style="font-family:consolas; color:#fff;">C:\Projects\JSUnitTesting> bin\Chutzpah1.2.0\chutzpah.console.exe /path code\qunit_unittests</code></pre>
-					</li>
-					<li class="fragment">Output:
-							<pre style="background-color: #000; display: block"><code class="dos" style="font-family:consolas; color:#fff;">Chutzpah console test runner (32-bit .NET 4.0.30319.237)
+					<p class="fragment">Pointing at the same location as the scripts</p>
+					<pre class="fragment"><code language="dos">C:\Projects\JSUnitTesting> bin\Chutzpah1.2.0\chutzpah.console.exe
+		/path code\qunit_unittests</code></pre>
+					<p class="fragment">Output:</p>
+					<pre class="fragment"><code language="dos">Chutzpah console test runner (32-bit .NET 4.0.30319.237)
 Copyright (C) 2011 Matthew Manela (http://matthewmanela.com).
 
 chutzpah.dll:     Version 1.2.0.29
 
 <span style="color:#f00">TestableObject:TestableObject Exists [FAIL]</span>
    Expected: "object", Actual: "undefined"
-        in C:\Projects\JSUnitTesting\code\qunit_unittests\unittests.js(4,1) at TestableObject:TestableObject Exists
+        in C:\Projects\JSUnitTesting\code\qunit_unittests\unittests.js
+		(4,1) at TestableObject:TestableObject Exists
 
 File: C:\Projects\JSUnitTesting\code\qunit_unittests\unittests.js
      1 total, 1 failed, took 0 seconds
 
 <span style="color: #999">Tests complete: 1</span>
 === 1 total, 1 failed, took 0 seconds ===</code></pre>
-					</li>
-				</ul>
 			</section>
 
 			<section>
@@ -442,16 +600,19 @@ File: C:\Projects\JSUnitTesting\code\qunit_unittests\unittests.js
 
 			<section>
 				<h2>QUnit and Rhino</h2>
-				<ul>
-					<li class="fragment">Pointing at a harness for Rhino to load the js
-							<pre style="background-color: #000; display: block"><code class="dos" style="font-family:consolas; color:#fff;">C:\Projects\JSUnitTesting> java -cp bin\rhino1_7R3\js.jar org.mozilla.javascript.tools.shell.Main -opt -1 rhino-suites\qunit_unittests_4.js</code></pre>
-					</li>
-					<li class="fragment">Output (on success, revision 4):
-							<pre style="background-color: #000; display: block"><code class="dos" style="font-family:consolas; color:#fff;">PASS undefined
-PASS undefined</code></pre>
-					</li>
-					<li class="fragment">Output (on failure, revision 3):
-							<pre style="background-color: #000; display: block"><code class="dos" style="font-family:consolas; color:#fff;">js: "lib/qunit/qunit.js", line 1172: Java class "[B" has no public instance field or method named "setInterval".
+				<section>
+					<p>Pointing at a harness for Rhino to load the js</p>
+					<pre><code class="dos">C:\Projects\JSUnitTesting> java -cp bin\rhino1_7R3\js.jar
+	org.mozilla.javascript.tools.shell.Main -opt -1
+	rhino-suites\qunit_unittests_4.js</code></pre></section>
+				<section>
+					<p >Output (on success, revision 4):</p>
+					<pre><code class="dos">PASS undefined
+PASS undefined</code></pre></section>
+				<section>
+					<p>Output (on failure, revision 3):</p>
+					<pre><code class="dos">js: "lib/qunit/qunit.js", line 1172: Java class "[B" has no public
+	instance field or method named "setInterval".
         at lib/qunit/qunit.js:1172
         at lib/qunit/qunit.js:1153
         at lib/qunit/qunit.js:1236
@@ -467,9 +628,7 @@ PASS undefined</code></pre>
         at lib/qunit/qunit.js:246
         at lib/qunit/qunit.js:293
         at code/qunit_unittests_3/unittests.js:12
-        at rhino-suites\qunit_unittests_3.js:12</code></pre>
-					</li>
-				</ul>
+        at rhino-suites\qunit_unittests_3.js:12</code></pre></section>
 			</section>
 
 			<section>
